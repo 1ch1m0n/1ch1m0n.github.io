@@ -10,13 +10,24 @@
 <h1>Welcome</h1>
 <p>This is where I learn stuff</p>
 
+<!-- Create a clickable button -->
 <button onclick="handleButtonClick()">Click Me</button>
 
 <!-- Optional: Add a script to define the button's behavior -->
 <script>
     function handleButtonClick() {
-        alert('Button Clicked!');
-        // Add any additional actions you want to perform when the button is clicked
+        // Display a confirmation dialog
+        var userResponse = confirm('Do you want to proceed?');
+
+        // Check the user's response
+        if (userResponse) {
+            alert('You clicked "Yes"');
+            // Add any additional actions for "Yes"
+        } else {
+            alert('You clicked "No"');
+            // Redirect to another page when the user clicks "No"
+            window.location.href = 'https://www.example.com'; // Replace with your desired URL
+        }
     }
 </script>
 </body>
