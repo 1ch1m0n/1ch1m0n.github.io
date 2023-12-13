@@ -1,9 +1,12 @@
 body {
-    background-color: powderblue;
+    background-color: black;
   }
   h1 {
-    color: blue;
+    border: 2px white;
+    color: rgb(247, 55, 55);
   }
   p {
-    color: red;
+    padding: 30px;
+    color: white;
+    
   }
