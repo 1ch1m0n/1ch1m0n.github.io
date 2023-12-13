@@ -11,27 +11,45 @@
 <p>This is where I learn stuff</p>
 
 <!-- Create a clickable button -->
-<button onclick="handleButtonClick()">Click Me</button>
+<button onclick="handleButtonClick()">Cuba Tekan</button>
 
 <!-- Optional: Add a script to define the button's behavior -->
 <script>
+    function customConfirm(message, yesCallback, noCallback) {
+        var modal = document.createElement('div');
+        modal.innerHTML = `
+            <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc; text-align: center;">
+                <p>${message}</p>
+                <button onclick="${yesCallback}()">Yes</button>
+                <button onclick="${noCallback}()">No</button>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+    }
+
     function handleButtonClick() {
-        // Display a confirmation dialog
-        var userResponse = confirm('Do you want to proceed?');
+        // Display a custom confirmation dialog
+        customConfirm('Do you want to proceed?', 'handleYesClick', 'handleNoClick');
+    }
 
-        // Check the user's response
-        if (userResponse) {
-            alert('You clicked "Yes"');
-            // Add any additional actions for "Yes"
-        } else {
-            // Keep showing confirmation dialogs until the user clicks "Yes"
-            while (!userResponse) {
-                userResponse = confirm('Are you sure you want to say "No" again?');
-            }
+    function handleYesClick() {
+        alert('You clicked "Yes"');
+        // Add any additional actions for "Yes"
+        // Remove the custom modal after processing
+        removeCustomModal();
+    }
 
-            // Once the user clicks "Yes," display an alert
-            alert('Finally! You clicked "Yes"');
-            // Add any additional actions for "Yes"
+    function handleNoClick() {
+        // Display a custom confirmation dialog again
+        customConfirm('Are you sure you want to say "No" again?', 'handleYesClick', 'handleNoClick');
+    }
+
+    function removeCustomModal() {
+        // Remove the custom modal from the DOM
+        var modal = document.querySelector('div');
+        if (modal) {
+            modal.parentNode.removeChild(modal);
         }
     }
 </script>
