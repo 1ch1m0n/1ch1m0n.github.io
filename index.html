@@ -1,43 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolling Cat Animation</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #f0f0f0;
-        }
-
-        #cat {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: url('https://media.tenor.com/images/53674e2f74c08190c3f17b8eaf5589da/tenor.gif') no-repeat;
-            background-size: contain;
-            transition: transform 0.5s linear;
-        }
-    </style>
-</head>
-
+<html>
 <body>
-    <div id="cat"></div>
-
-    <script>
-        const cat = document.getElementById('cat');
-        let rotateDeg = 0;
-
-        function rollCat() {
-            rotateDeg += 360; // Increment rotation by 360 degrees
-            cat.style.transform = `rotate(${rotateDeg}deg)`;
-        }
-
-        // Roll the cat every 2 seconds
-        setInterval(rollCat, 2000);
-    </script>
+<h1>Hello World</h1>
+<p>I'm hosted with GitHub Pages.</p>
 </body>
-
 </html>
