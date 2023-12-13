@@ -24,9 +24,14 @@
             alert('You clicked "Yes"');
             // Add any additional actions for "Yes"
         } else {
-            alert('You clicked "No"');
-            // Redirect to another page when the user clicks "No"
-            window.location.href = 'https://www.example.com'; // Replace with your desired URL
+            // Keep showing confirmation dialogs until the user clicks "Yes"
+            while (!userResponse) {
+                userResponse = confirm('Are you sure you want to say "No" again?');
+            }
+
+            // Once the user clicks "Yes," display an alert
+            alert('Finally! You clicked "Yes"');
+            // Add any additional actions for "Yes"
         }
     }
 </script>
