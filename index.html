@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Rolling Animation</title>
+    <title>Rolling Cat Animation</title>
     <style>
         body {
             margin: 0;
             overflow: hidden;
+            background-color: #f0f0f0;
         }
 
         #cat {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background: url('https://placekitten.com/100/100') no-repeat;
-            background-size: cover;
+            width: 80px;
+            height: 80px;
+            background: url('https://media.tenor.com/images/53674e2f74c08190c3f17b8eaf5589da/tenor.gif') no-repeat;
+            background-size: contain;
             transition: transform 0.5s linear;
         }
     </style>
@@ -27,7 +28,6 @@
 
     <script>
         const cat = document.getElementById('cat');
-
         let rotateDeg = 0;
 
         function rollCat() {
