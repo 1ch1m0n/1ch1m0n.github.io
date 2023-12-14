@@ -49,3 +49,9 @@ button {
 .content p {
   color: #555;
 }
+
+.content img {
+  max-width: 100%; /* Make sure the image doesn't exceed its container width */
+  height: auto; /* Maintain the aspect ratio */
+  margin-top: 10px; /* Add some top margin for spacing */
+}
