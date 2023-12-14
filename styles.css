@@ -22,6 +22,9 @@ button {
 
 .content {
   display: none;
+  overflow: hidden; /* Hide content overflow to create a sliding effect */
+  transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
+  max-height: 0; /* Initially set max-height to 0 */
 }
 
 .content h2 {

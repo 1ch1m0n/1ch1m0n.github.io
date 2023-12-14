@@ -10,25 +10,25 @@
 <h1>Welcome to Ichimon's Page</h1>
 <p>My first website ever!</p>
 
-<div class="container">
-    <button onclick="showAboutMe()">About Me</button>
-    <button onclick="showEducation()">Education</button>
-    <button onclick="showExperience()">Experience</button>
+<!-- Modify the button onclick events -->
+<button onclick="showContent('aboutMe')">About Me</button>
+<button onclick="showContent('education')">Education</button>
+<button onclick="showContent('experience')">Experience</button>
 
-    <div id="aboutMe" class="content">
-        <h2>About Me</h2>
-        <p>Your bio and other information go here.</p>
-    </div>
+<!-- Modify the content divs to include the 'content' class -->
+<div id="aboutMe" class="content">
+    <h2>About Me</h2>
+    <p>Your bio and other information go here.</p>
+</div>
 
-    <div id="education" class="content">
-        <h2>Education</h2>
-        <p>Your educational background goes here.</p>
-    </div>
+<div id="education" class="content">
+    <h2>Education</h2>
+    <p>Your educational background goes here.</p>
+</div>
 
-    <div id="experience" class="content">
-        <h2>Experience</h2>
-        <p>Your work experience goes here.</p>
-    </div>
+<div id="experience" class="content">
+    <h2>Experience</h2>
+    <p>Your work experience goes here.</p>
 </div>
 
 <script src="script.js"></script>
