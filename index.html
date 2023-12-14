@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Welcome to Ichimon's Page</h1>
-<p>A place where I try random stuff</p>
+<p>Saya Muhammad Akif mengaku bersalah atas kesalahan membuat Nurul Rusydina merajuk</p>
 
 <!-- Create a clickable button -->
 <button onclick="handleButtonClick()">Cuba Tekan</button>
@@ -20,8 +20,8 @@
         modal.innerHTML = `
             <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc; text-align: center;">
                 <p>${message}</p>
-                <button onclick="${yesCallback}()">Yes</button>
-                <button onclick="${noCallback}()">No</button>
+                <button onclick="${yesCallback}()">Tak Marah</button>
+                <button onclick="${noCallback}()">Marah</button>
             </div>
         `;
         
@@ -30,11 +30,11 @@
 
     function handleButtonClick() {
         // Display a custom confirmation dialog
-        customConfirm('Would you like to see more ?', 'handleYesClick', 'handleNoClick');
+        customConfirm('Awak marah saya lagi ke? :( ', 'handleYesClick', 'handleNoClick');
     }
 
     function handleYesClick() {
-        alert('Good answer hihi');
+        alert('YAYYY! Sayang jangan lah merajuk okay huhu :(');
         // Add any additional actions for "Yes"
         // Remove the custom modal after processing
         removeCustomModal();
@@ -42,7 +42,7 @@
 
     function handleNoClick() {
         // Display a custom confirmation dialog again
-        customConfirm('Serious la taknak ?', 'handleYesClick', 'handleNoClick');
+        customConfirm('Jangan lah marah saya :(', 'handleYesClick', 'handleNoClick');
     }
 
     function removeCustomModal() {
