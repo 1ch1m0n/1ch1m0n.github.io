@@ -1,12 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  text-align: center;
-}
-
-h1 {
-  color: #333;
-  margin-top: 50px; 
+  font-family: Arial, sans-serif;
 }
 
 .container {
@@ -22,9 +15,6 @@ button {
 
 .content {
   display: none;
-  overflow: hidden; /* Hide content overflow to create a sliding effect */
-  transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
-  max-height: 0; /* Initially set max-height to 0 */
 }
 
 .content h2 {
