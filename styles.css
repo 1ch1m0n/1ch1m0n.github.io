@@ -9,6 +9,7 @@ body {
 .container {
   width: 80%; /* Set a width for the container */
   margin: 20px auto; /* Center the container horizontally */
+  text-align: center;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
