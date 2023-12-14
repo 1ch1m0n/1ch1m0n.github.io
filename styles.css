@@ -9,20 +9,25 @@ h1 {
   margin-top: 50px; 
 }
 
-p {
-  color: #555;
+.container {
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px;
+  margin: 5px;
   cursor: pointer;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
 }
 
-button:hover {
-  background-color: #0056b3;
+.content {
+  display: none;
+}
+
+.content h2 {
+  color: #333;
+}
+
+.content p {
+  color: #555;
 }

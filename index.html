@@ -8,50 +8,29 @@
 </head>
 <body>
 <h1>Welcome to Ichimon's Page</h1>
-<p>Saya Muhammad Akif mengaku bersalah atas kesalahan membuat Nurul Rusydina merajuk</p>
+<p>My first website ever!</p>
 
-<!-- Create a clickable button -->
-<button onclick="handleButtonClick()">Cuba Tekan</button>
+<div class="container">
+    <button onclick="showAboutMe()">About Me</button>
+    <button onclick="showEducation()">Education</button>
+    <button onclick="showExperience()">Experience</button>
 
-<!-- Optional: Add a script to define the button's behavior -->
-<script>
-    function customConfirm(message, yesCallback, noCallback) {
-        var modal = document.createElement('div');
-        modal.innerHTML = `
-            <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc; text-align: center;">
-                <p>${message}</p>
-                <button onclick="${yesCallback}()">Tak Marah</button>
-                <button onclick="${noCallback}()">Marah</button>
-            </div>
-        `;
-        
-        document.body.appendChild(modal);
-    }
+    <div id="aboutMe" class="content">
+        <h2>About Me</h2>
+        <p>Your bio and other information go here.</p>
+    </div>
 
-    function handleButtonClick() {
-        // Display a custom confirmation dialog
-        customConfirm('Awak marah saya lagi ke? :( ', 'handleYesClick', 'handleNoClick');
-    }
+    <div id="education" class="content">
+        <h2>Education</h2>
+        <p>Your educational background goes here.</p>
+    </div>
 
-    function handleYesClick() {
-        alert('YAYYY! Sayang jangan lah merajuk okay huhu :(');
-        // Add any additional actions for "Yes"
-        // Remove the custom modal after processing
-        removeCustomModal();
-    }
+    <div id="experience" class="content">
+        <h2>Experience</h2>
+        <p>Your work experience goes here.</p>
+    </div>
+</div>
 
-    function handleNoClick() {
-        // Display a custom confirmation dialog again
-        customConfirm('Jangan lah marah saya :(', 'handleYesClick', 'handleNoClick');
-    }
-
-    function removeCustomModal() {
-        // Remove the custom modal from the DOM
-        var modal = document.querySelector('div');
-        if (modal) {
-            modal.parentNode.removeChild(modal);
-        }
-    }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
