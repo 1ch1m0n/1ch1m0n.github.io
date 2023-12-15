@@ -1,3 +1,4 @@
+/*Hide Content */
 function showContent(contentId) {
     hideAllContent();
     var content = document.getElementById(contentId);
@@ -9,4 +10,9 @@ function hideAllContent() {
     for (var i = 0; i < contents.length; i++) {
         contents[i].style.maxHeight = '0';
     }
+    
+     // Hide nested buttons when hiding all content
+     var nestedButtons = document.querySelector('.nested-buttons');
+     if (nestedButtons) {
+         nestedButtons.style.maxHeight = '0';
 }
