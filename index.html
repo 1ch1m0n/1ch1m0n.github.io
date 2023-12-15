@@ -14,8 +14,9 @@
 </div>
 
 <div class="container">
-    <!-- About Me Section -->
     <button onclick="showContent('aboutMe')">About Me</button>
+    <button onclick="showContent('education')">Education</button>
+    <button onclick="showContent('experience')">Experience</button>
 
     <div id="aboutMe" class="content">
         <h2>About Me</h2>
@@ -23,63 +24,38 @@
         <img src="images/meow.jpg" alt="Kucing Comel">
     </div>
 
-    <!-- Education Section -->
-    <div class="button-group">
-        <button onclick="showContent('education')">Education</button>
-
-        <!-- Nested Button for Education -->
-        <div id="education" class="content nested-buttons">
-            <button onclick="showContent('midschool')">Middle School</button>
-            <button onclick="showContent('highschool')">High School</button>
-            <button onclick="showContent('university')">University</button>
-        </div>
+    <div id="education" class="content">
+        <h2>Education</h2>
+        <p>Your educational background goes here.</p>
     </div>
-    
-    <div id="midschool" class="content">
-        <h2>Middle School</h2>
-        <p>Your middle school details go here.</p>
-    </div>
-
-    <div id="highschool" class="content">
-        <h2>High School</h2>
-        <p>Your high school details go here.</p>
-    </div>
-
-    <div id="university" class="content">
-        <h2>University</h2>
-        <p>Your university details go here.</p>
-    </div>
-
-    <!-- Experience Section -->
-    <button onclick="showContent('experience')">Experience</button>
 
     <div id="experience" class="content">
         <h2>Experience</h2>
         <p>Your work experience goes here.</p>
-          <table>
-        <thead>
-            <tr>
-                <th>Year</th>
-                <th>Experience</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>2018</td>
-                <td>Started learning web development</td>
-            </tr>
-            <tr>
-                <td>2019</td>
-                <td>Internship at XYZ Company</td>
-            </tr>
-            <tr>
-                <td>2020</td>
-                <td>Completed a coding bootcamp</td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2018</td>
+                    <td>Started learning web development</td>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td>Internship at XYZ Company</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>Completed a coding bootcamp</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    
     </div>
 </div>
 
