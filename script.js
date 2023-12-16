@@ -4,9 +4,9 @@ function showContent(contentId) {
     content.style.maxHeight = content.scrollHeight + "px";
 
      // Additional logic to handle specific cases
-     if (contentId === 'school1') {
+     if (contentId === 'ctf') {
         showContent('ctf1');
-    } else if (contentId === 'school2') {
+    } else if (contentId === 'ctf2') {
         showContent('ctf2');
     }
 }
