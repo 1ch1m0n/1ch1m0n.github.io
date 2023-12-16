@@ -5,11 +5,14 @@ function showContent(contentId) {
 
     // Additional logic to handle specific cases
     if (contentId === 'ctf') {
-        showContent('ctf1');
-    } else if (contentId === 'ctf1') { // Fix the typo here
-        // Handle 'ctf1' case if needed
-    } else if (contentId === 'ctf2') {
-        // Handle 'ctf2' case if needed
+        showCTFContent('ctf1');
+    }
+}
+
+function showCTFContent(ctfId) {
+    var ctfContent = document.getElementById(ctfId);
+    if (ctfContent) {
+        ctfContent.style.maxHeight = ctfContent.scrollHeight + "px";
     }
 }
 
