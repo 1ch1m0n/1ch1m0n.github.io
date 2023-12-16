@@ -5,14 +5,10 @@ function showContent(contentId) {
 
     // Additional logic to handle specific cases
     if (contentId === 'ctf') {
-        showCTFContent('ctf1');
-    }
-}
-
-function showCTFContent(ctfId) {
-    var ctfContent = document.getElementById(ctfId);
-    if (ctfContent) {
-        ctfContent.style.maxHeight = ctfContent.scrollHeight + "px";
+        var ctfContent = document.getElementById('ctf1');
+        if (ctfContent) {
+            ctfContent.style.maxHeight = ctfContent.scrollHeight + "px";
+        }
     }
 }
 
