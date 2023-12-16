@@ -90,3 +90,45 @@ tr:hover {
   background-color: #f5f5f5;
   transition: background-color 0.3s ease;
 }
+
+/* Add styles for CTF 1 and CTF 2 buttons */
+.writeups-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.writeups-buttons button:hover {
+  background-color: #2980b9;
+}
+
+/* Add styles for CTF 1 and CTF 2 content */
+#ctf1,
+#ctf2 {
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  max-height: 0;
+  text-align: left;
+}
+
+#ctf1 h2,
+#ctf2 h2 {
+  color: #333;
+}
+
+#ctf1 p,
+#ctf2 p {
+  color: #555;
+}
+
+#ctf1 img,
+#ctf2 img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}

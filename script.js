@@ -11,16 +11,9 @@ function hideAllContent() {
     }
 }
 
-function showContent(sectionId) {
-    var content = document.getElementById(sectionId);
-
-    // Toggle the visibility of the content
-    if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-    } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-    }
-
-    // Prevent the default behavior of the click event
-    event.preventDefault();
+// Add functions for CTF 1 and CTF 2
+function showContent(contentId) {
+    hideAllContent();
+    var content = document.getElementById(contentId);
+    content.style.maxHeight = content.scrollHeight + "px";
 }
