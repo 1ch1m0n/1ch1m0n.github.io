@@ -1,13 +1,23 @@
-// Add interactive features if needed
-// Add interactive features if needed
-document.getElementById('btnAnimate').addEventListener('click', function() {
-    animateButton();
-});
+// Add interactive features
+function showCategories(competition) {
+    var categoriesContainer = document.getElementById('categories');
+    categoriesContainer.innerHTML = ''; // Clear previous content
 
-function animateButton() {
-    var button = document.getElementById('btnAnimate');
-    button.classList.add('animated');
-    setTimeout(function() {
-        button.classList.remove('animated');
-    }, 1000);
+    // Example categories, you can replace them with your own
+    var categories = {
+        'competition1': ['Forensics', 'Web', 'Pwn'],
+        'competition2': ['Crypto', 'Reverse Engineering', 'Misc'],
+    };
+
+    if (categories[competition]) {
+        categories[competition].forEach(function(category) {
+            var categoryLink = document.createElement('a');
+            categoryLink.href = '#'; // Add actual link or functionality
+            categoryLink.innerText = category;
+            categoriesContainer.appendChild(categoryLink);
+        });
+    }
+
+    // Show the categories
+    categoriesContainer.style.display = 'block';
 }

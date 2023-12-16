@@ -15,18 +15,19 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Write a brief introduction about yourself and your interest in CTFs.</p>
+        <div class="centered-content">
+            <p>Write a brief introduction about yourself and your interest in CTFs.</p>
+            <!-- Add pictures or other content here -->
+        </div>
     </section>
 
     <section id="writeups">
         <h2>CTF Writeups</h2>
-        <p>Share your CTF challenges and solutions here.</p>
-        <!-- Add writeups and content here -->
-    </section>
-
-    <section id="buttons">
-        <h2>Interactive Buttons</h2>
-        <button id="btnAnimate">Animate Me</button>
+        <div class="competition-buttons">
+            <button onclick="showCategories('competition1')">Competition 1</button>
+            <button onclick="showCategories('competition2')">Competition 2</button>
+        </div>
+        <div id="categories"></div>
     </section>
 
     <footer>
