@@ -4,78 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Ichimon's Page</title>
+    <title>Your CTF Journey</title>
 </head>
 <body>
 
-<div class="header">
-    <h1>Welcome to Ichimon's Page</h1>
-    <p>My first website ever!</p>
-</div>
+    <header>
+        <h1>Your Name - CTF Journey</h1>
+        <p>Welcome to my Capture The Flag journey!</p>
+    </header>
 
-<div class="container">
-    <button onclick="showContent('aboutMe')">About Me</button>
-    <button onclick="showContent('writeups')">Writeups</button>
-    <button onclick="showContent('experience')">Experience</button>
-
-    <div id="aboutMe" class="content">
+    <section id="about">
         <h2>About Me</h2>
-        <p>Your bio and other information go here.</p>
-        <img src="images/meow.jpg" alt="Kucing Comel">
-    </div>
+        <p>Write a brief introduction about yourself and your interest in CTFs.</p>
+    </section>
 
-    <div id="writeups" class="content">
-        <h2>Education</h2>
-        <p>Your educational background goes here.</p>
+    <section id="writeups">
+        <h2>CTF Writeups</h2>
+        <p>Share your CTF challenges and solutions here.</p>
+        <!-- Add writeups and content here -->
+    </section>
 
-        <!-- New div for buttons under Education -->
-        <div class="writeups-buttons">
-            <button onclick="showContent('ctf1')">School 1</button>
-            <button onclick="showContent('ctf2')">School 2</button>
-               <!-- Add more buttons as needed -->
-        </div>
-        <div id="ctf1" class="content">
-            <h2>CTF 1</h2>
-            <p>CTF 1 details go here.</p>
-            <!-- Add table for CTF 1 if needed -->
-        </div>
-    
-        <div id="ctf2" class="content">
-            <h2>CTF 2</h2>
-            <p>CTF 2 details go here.</p>
-            <!-- Add table for CTF 2 if needed -->
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
 
-    <div id="experience" class="content">
-        <h2>Experience</h2>
-        <p>Your work experience goes here.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Year</th>
-                    <th>Experience</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2018</td>
-                    <td>Started learning web development</td>
-                </tr>
-                <tr>
-                    <td>2019</td>
-                    <td>Internship at XYZ Company</td>
-                </tr>
-                <tr>
-                    <td>2020</td>
-                    <td>Completed a coding bootcamp</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
