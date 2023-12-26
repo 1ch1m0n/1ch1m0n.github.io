@@ -10,7 +10,7 @@ function showCategories(competition) {
     };
 
     if (categories[competition]) {
-        categories[competition].forEach(function(category) {
+        categories[competition].forEach(function (category) {
             var categoryLink = document.createElement('a');
             categoryLink.href = '#'; // Add actual link or functionality
             categoryLink.innerText = category;
@@ -21,11 +21,11 @@ function showCategories(competition) {
         for (let i = 1; i <= 3; i++) {
             var additionalButton = document.createElement('button');
             additionalButton.innerText = 'Subcategory ' + i;
-            additionalButton.onclick = (function (index) {
-                return function() {
+            additionalButton.onclick = function (index) {
+                return function () {
                     expandContainer('Subcategory ' + index);
                 };
-            })(i);
+            }(i);
             categoriesContainer.appendChild(additionalButton);
         }
     }
