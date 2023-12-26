@@ -16,8 +16,24 @@ function showCategories(competition) {
             categoryLink.innerText = category;
             categoriesContainer.appendChild(categoryLink);
         });
+
+        // Create additional buttons when a category button is clicked
+        for (var i = 1; i <= 3; i++) {
+            var additionalButton = document.createElement('button');
+            additionalButton.innerText = 'Subcategory ' + i;
+            additionalButton.onclick = function() {
+                expandContainer('Subcategory ' + i);
+            };
+            categoriesContainer.appendChild(additionalButton);
+        }
     }
 
     // Show the categories
     categoriesContainer.style.display = 'block';
+}
+
+// Function to expand the container based on the subcategory
+function expandContainer(subcategory) {
+    // Example: Add logic to expand the container based on the subcategory clicked
+    alert('Expanded Container for ' + subcategory);
 }
