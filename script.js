@@ -18,12 +18,14 @@ function showCategories(competition) {
         });
 
         // Create additional buttons when a category button is clicked
-        for (var i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 3; i++) {
             var additionalButton = document.createElement('button');
             additionalButton.innerText = 'Subcategory ' + i;
-            additionalButton.onclick = function() {
-                expandContainer('Subcategory ' + i);
-            };
+            additionalButton.onclick = (function (index) {
+                return function() {
+                    expandContainer('Subcategory ' + index);
+                };
+            })(i);
             categoriesContainer.appendChild(additionalButton);
         }
     }
