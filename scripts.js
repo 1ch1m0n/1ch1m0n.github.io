@@ -21,11 +21,9 @@ function showCategories(competition) {
         for (let i = 1; i <= 3; i++) {
             var additionalButton = document.createElement('button');
             additionalButton.innerText = 'Subcategory ' + i;
-            additionalButton.onclick = function (index) {
-                return function () {
-                    expandContainer('Subcategory ' + index);
-                };
-            }(i);
+            additionalButton.onclick = function () {
+                expandContainer('Subcategory ' + i);
+            };
             categoriesContainer.appendChild(additionalButton);
         }
     }
@@ -36,6 +34,8 @@ function showCategories(competition) {
 
 // Function to expand the container based on the subcategory
 function expandContainer(subcategory) {
-    // Example: Add logic to expand the container based on the subcategory clicked
+    // Example: Adjust the container height when a subcategory button is clicked
+    var container = document.getElementById('writeups');
+    container.style.height = '500px'; // Adjust the height as needed
     alert('Expanded Container for ' + subcategory);
 }
