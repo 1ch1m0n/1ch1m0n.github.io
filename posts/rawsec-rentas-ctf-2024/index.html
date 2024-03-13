@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>About 1ch1m0n</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.123.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Akif" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    <link rel="alternate" type="application/rss+xml" href="https://1ch1m0n.github.io/index.xml" title="1ch1m0n's Blog">
+    
+
+    
+    <meta name="twitter:card" content="about"/><meta name="twitter:title" content="1ch1m0n&#39;s Blog"/>
+<meta name="twitter:description" content=""/>
+
+    <meta property="og:title" content="1ch1m0n&#39;s Blog" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://1ch1m0n.github.io/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://1ch1m0n.github.io/"><img class="app-header-avatar" src="/ocin.jpg" alt="Ocin Kimchi" /></a>
+      <span class="app-header-title">1ch1m0n&#39;s Blog</span>
+      <p>Welcome! I post random stuff here, hope you guys enjoy reading it!</p>
+
+      <nav class="app-header-menu">
+        <a class="app-header-menu-item" href="/about/">About</a>
+        • 
+        <a class="app-header-menu-item" href="/notes/">Notes</a>
+      </nav>
+    </header>
+    <main class="app-container">
+        <article class="post">
+            <header class="post-header">
+                <a class ="post-title" style="font-size: 26px; font-weight: bold;">rawSEC rENTAS 2024 Writeup</a>
+                <br>
+                <span style="margin: 0; padding: 0; font-weight: bold;"> on March 09, 2024</span>
+                <br>
+                <p> Official Writeup of Team R3BUNG </p>
+                <style>
+                  .toc-box {
+                      border: 1px solid #ccc;
+                      padding: 10px;
+                      margin: 10px;
+                      width: 400px;
+                      border-radius: 5px;
+                      background-color: #242930;
+
+                  }
+          
+                  .toc-title {
+                      margin-bottom: 10px;
+                  }
+          
+              </style>
+            </header>
+
+            <div class="post-content">
+              <div class="toc-box">
+                <h2 id="toc-title">Table of Contents</h2>
+                <ul>
+                  <li>
+                    <a href="#dfir">DFIR</a>
+                  </li>
+                  <li>
+                    <a href="#hardware">Hardware</a>
+                  </li>
+                  <li>
+                    <a href="#network">Network</a>
+                  </li>
+
+                </ul>
+              </div>
+
+                <p> <img src="/posts/rawsec-rentas-ctf-2024/rawSEC.png "alt ="rawSEC"></p>
+                
+                <h2 id="dfir">DFIR </h2>
+                <h3> Hiding Zombie </h3>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-0.png"></p>
+                <p> Firstly we were given a corrupted .png file </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-1.png" width="600"></p>
+                <p> Upon checking the picture using pngcheck we can see there are errors in the picture. 
+                    We solve the CRC error by replacing <code>7f1d2b83</code> with <code>80d35286 </code>, 
+                    so that we can open the picture.
+                </p>
+                <p>
+                    <img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-2.png" width="800">
+                    <img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-3.png" width="800">
+                </p>
+                <p>
+                    Then we uploaded the picture to a website called <code>FotoForensics</code>
+                    and analyse the picture using Hidden Pixels
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-4.png" width="800"></p>
+                <span style =" margin: 0; padding: 0; font-weight: bold;">Author : Ner</span>
+
+                <div class="highlight">
+                  <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag: RWSC{z0mb13_4tt4ck_1nc0m1ng}</code>
+                  </pre>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <h2 id="hardware">Hardware </h2>
+                <h3> 7 Segment 4 Digit </h3>
+                <p> 
+                    This is a very interesting physical question, we were presented with a 7 segment LCD display and an Arduino board 
+                    in which we need to light up by connecting wires on the board. Surprisingly we managed to connect it 
+                    and got first blood for the Hardware category as we were picked to do it first thing
+                    in the morning as the CTF Event started. Upon successfull connection it will display the flag
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/hardware-1.jpg" width="600"></p>
+
+                <span style =" margin: 0; padding: 0; font-weight: bold;">Author : Ichimon</span>
+                <div class="highlight">
+                  <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag: RWSC{1337}</code>
+                  </pre>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+                <h2 id="network">Network </h2>
+                <h3> I Hope You Have The Software </h3>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-0.png"></p>
+                <p> 
+                    This question is rather a straightforward one, firstly when I opened the file in Cisco Packet Tracer 
+                    we  check what is in the server and there is a suspicious <code>sampleFile.txt </code> 
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-1.png" width="600"></p>
+                <p> 
+                    However upon further checking there is nothing here, the real clue lies within each services of the server running. 
+                    By checking each of the server’s services patiently, we came across the flag inside <code>index.html </code>
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-2.png" width="800"></p>
+                <p>When we opened it and scroll down BOOM!  the flag was there. </p>   
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-3.png" width="800"></p>
+                
+                <span style =" margin: 0; padding: 0; font-weight: bold;">Author : Ichimon</span>
+                <div class="highlight">
+                  <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag : RWSC{_t4c3r_f!l3_:D!t5_a}</code>
+                  </pre>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+                <h2 id="web">Web </h2>
+                <h3> Anti-Brute </h3>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-0.png"></p>
+                <p> 
+                    This question is rather a straightforward one, firstly when I opened the file in Cisco Packet Tracer 
+                    we  check what is in the server and there is a suspicious <code>sampleFile.txt </code> 
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-1.png" width="600"></p>
+                <p> 
+                    However upon further checking there is nothing here, the real clue lies within each services of the server running. 
+                    By checking each of the server’s services patiently, we came across the flag inside <code>index.html </code>
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-2.png" width="800"></p>
+                <p>When we opened it and scroll down BOOM!  the flag was there. </p>   
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-3.png" width="800"></p>
+                
+                <span style =" margin: 0; padding: 0; font-weight: bold;">Author : Ichimon</span>
+                <div class="highlight">
+                  <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag : RWSC{_t4c3r_f!l3_:D!t5_a}</code>
+                  </pre>
+                </div>
+
+
+            </div>
+
+
+
+         </article>
+
+    </main>
+  </body>
+</html>
