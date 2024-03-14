@@ -59,7 +59,7 @@
                 <span style="margin: 0; padding: 0; font-weight: bold; display: inline-block; text-indent: 3em;">by: Ichimon</span>
 
                 <br>
-                <p> Official Writeup of Team R3BUNG </p>
+                <p> My part of Team R3BUNG's Writeup </p>
                 <style>
                   .toc-box {
                       border: 1px solid #ccc;
@@ -82,6 +82,14 @@
               <div class="toc-box">
                 <h2 id="toc-title">Table of Contents</h2>
                 <ul>
+                  <span style="margin: 0; padding: 0; font-weight: bold;">Qualifying Round</span>
+                  <li>
+                    <a href="#osint">OSINT</a>
+                  </li>
+                  <li>
+                    <a href="#cryptography">Cryptography</a>
+                  <br><br>
+                  <span style="margin: 0; padding: 0; font-weight: bold;">Final Round</span>
                   <li>
                     <a href="#dfir">DFIR</a>
                   </li>
@@ -94,7 +102,59 @@
 
                 </ul>
               </div>
+
+                <h1>Qualifying Round</h1>
+                <!--Qualifying-------------------------------------------------------------------------------------------------------------------------------------------->
+                <h2 id="osint">OSINT </h2>
+                <h3> Cali Cartel </h3>
+                <p>This question is very straightforward, as the description stated “knowledge is power” 
+                  suggests that the flag is somewhere on the internet. A simple google search using Google 
+                  search operator <code>Cali Cartel “RWSC”</code> reveals that the flag is in a Reddit website. 
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/calicartel-1.png"></p>
                 
+                <div class="highlight">
+                  <div tabindex="0" style="color:#f8f8f2;background-color:#272822;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag : RWSC{C4L1_C4RT3L_PWN3D}</code>
+                  </div>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+                <h3> Medellin Cartel </h3>
+                <p> 
+                  This one is quite tricky, but when the clue was released it led us to an Instagram profile 
+                  @nelsonhernandez144 which the clue tells us something about the metadata. 
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/medellincartel-1.png"></p>
+                <p> 
+                  Using a tool called <code>Instaloader</code> we were able to extract this profile along with its metadata. 
+                  Further check on each of the files reveals that the flag is in one of the .json documents.
+                </p>
+
+                <div class="highlight">
+                  <div tabindex="0" style="color:#f8f8f2;background-color:#272822;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag : RWSC{Bl4cky_S1c4r10}</code>
+                  </div>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+                <h2 id="cryptography">Cryptography</h2>
+                <h3>round and round</h3>
+                <p>
+                  This one took us a while to figure it out, in the end the clue lies within the description “I love to eat pizza”. 
+                  Upon further googling we found one cipher named Pizzini Cipher, from there on everything was so direct 
+                </p>
+                <p><img src ="/posts/rawsec-rentas-ctf-2024/roundnround-1.png"></p>
+                
+                <div class="highlight">
+                  <div tabindex="0" style="color:#f8f8f2;background-color:#272822;">
+                      <code class="flag-submission" data-lang="flag" style="font-size: 18px; font-weight: bold; text-align: left;">Flag : RWSC{PIZZINI_CIPHER_WAS_EAZY}</code>
+                  </div>
+                </div>
+                
+                
+                <h1>Final Round</h1>
+                <!--FINAL------------------------------------------------------------------------------------------------------------------------------------------------->
                 <h2 id="dfir">DFIR </h2>
                 <h3> Hiding Zombie </h3>
                 <p><img src ="/posts/rawsec-rentas-ctf-2024/hidingzombie-0.png"></p>
