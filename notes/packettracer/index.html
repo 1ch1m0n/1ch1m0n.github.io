@@ -52,26 +52,24 @@
     <main class="app-container">
         <article class="post">
             <header class="post-header">
-                <div class="app-header-socials">
+                   
+
+                <span>
                     <a href="/notes" style="font-size: 25px;" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
                             <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
                         </svg>
-                        Back
                     </a>
-                </div>
+                    <a class ="post-title" style="font-size: 26px; font-weight: bold;">Packet Tracer Cheatsheet</a>
+                </span>
                 
-                <a class ="post-title" style="font-size: 26px; font-weight: bold;">Packet Tracer Cheatsheet</a>
-        
                 <style>
                   .box {
                       border: 1px solid #ccc;
                       padding: 10px;
                       margin: 10px;
-                      width: 800px;
                       border-radius: 5px;
                       background-color: #242930;
-
                   }
           
                   .box-title {
@@ -84,7 +82,7 @@
             <div class="post-content">
             <h2 id="box-title">Basic Configuration :</h2>
               <div class="box">
-                <code style="font-size: 18px; white-space: pre-line;">
+                <code style="white-space: pre-line;">
                     no ip domain-lookup
                     service password-encryption
                     hostname S1
@@ -103,7 +101,7 @@
 
             <h2 id="box-title">IPv4 Address Configuration :</h2>
               <div class="box">
-                <code style="font-size: 18px; white-space: pre-line;">
+                <code style="white-space: pre-line;">
                     int g0/0
                     ip address 10.0.1.1 255.255.255.0
                     no shut
@@ -111,7 +109,7 @@
                 </div>
             <h2 id="box-title">IPv6 Address Configuration :</h2>
               <div class="box">
-                <code style="font-size: 18px; white-space: pre-line;">
+                <code style="white-space: pre-line;">
                     int g0/0
                     ipv6 address 2001:db8:acad:3::/64
                     no shut
@@ -120,7 +118,7 @@
             
             <h2 id="box-title">Stateless DHCP Server Configuration :</h2>
               <div class="box">
-                <code style="font-size: 18px; white-space: pre-line;">
+                <code style="white-space: pre-line;">
                     int g0/0
                     ipv6 unicast-routing
                     ipv6 dhcp pool LAN1
@@ -135,7 +133,7 @@
 
             <h2 id="box-title">Stateful DHCP Server Configuration :</h2>
               <div class="box">
-                <code style="font-size: 18px; white-space: pre-line;">
+                <code style="white-space: pre-line;">
                     int g0/0
                     ipv6 unicast-routing
                     ipv6 dhcp pool LAN1
