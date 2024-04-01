@@ -2,7 +2,7 @@
     <meta http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title itemprop="name">About | 1ch1m0n's Blog</title>
+    <title itemprop="name">Home | 1ch1m0n's Blog</title>
     <meta property="og:title" content="Home | 1ch1m0n's Blog" />
     <meta name="twitter:title" content="Home | 1ch1m0n's Blog" />
     <meta itemprop="name" content="Home | 1ch1m0n's Blog" />
@@ -105,16 +105,17 @@
                         </a>
                         
                     </li>
-
+                    
                     <li>
                         <a class="menu-link " href="/pages/notes/">
                             Notes
                         </a>
                         
                     </li>
-                    
+    
                     <li class="menu-separator">
                         <span>|</span>
+                        
                     </li>
                     
                     
@@ -128,29 +129,120 @@
             </div>
         </nav>
     </div>
+
     <div class="wrapper post">
-    
-        <main class="page-content" aria-label="Content"> 
+        <main class="page-content" aria-label="Content">
             <article>
                 <header class="header">
-            
-                    <h1 class="header-title">About</h1>
-                </header>
+                    <h1 class="header-title">vikeCTF 2024 Writeup</h1>
+                    
+                    
+                    
+                    <div class="post-meta">
+                        <time datetime="2024-03-09T00:00:00&#43;00:00" itemprop="datePublished"> 9 March 2024 </time>
+                    </div>
+                    <br>
+                    <img src="/posts/vike-ctf-2024/vikectf.png">
+                    <br>
 
+                </header>  
+        <details class="toc" ZgotmplZ>
+            <summary><b>Table of Contents</b></summary>
+            <nav id="TableOfContents">
+      <ul>
+        <li><a href="#cloud">Cloud</a></li>
+      </ul>
+    </nav>
+        </details>
                 <div class="page-content">
+                    <h2 id="cloud">Cloud</h2>
+                    <h3 id="table-of-content">My Buddy Erik</h3>
+    <p style="font-weight: bold;">Introduction : </p>
+    <p> 
+        My buddy Erik wants to play Minecraft so I set up a server for us to play on. I've committed my configuration to GitHub because it's so convenient! 
+        Can you make sure that everything is secure? https://github.com/VikeSec/vikeCTF-2024-minecraft-server
+    </p>
+    <p style="font-weight: bold;">Solution : </p>
+    <p>
+        Honestly I have no idea what to do at first, then I copied the given docker file and try to run it on my Kali
+    </p>
+    <!-- CSS For Code-->
+    <style>
+       /* styles.css */
 
-                    <img src="/avatar.png" alt="A cute cat"></a>
+        .terminal-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #2c2c2c;
+        color: #ffffff;
+        font-family: 'Courier New', Courier, monospace;
+        }
 
-                    <p>
-                        Hello everyone ! I'm Akif, a final year computer network student with a passion for cybersecurity.
-            
-                    </p>
+        .terminal {
+        background-color: #1e1e1e;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        }
 
-                </div>  
-            </article>
+        .prompt {
+        color: #00ff00; /* Green color for the prompt */
+        }
+        .extraprompt {
+        color: #f92672; /* Red color for the extra prompt */
+        }
 
-        </main>
+        .pretty-code {
+        font-size: 16px;
+        background-color: #1e1e1e;
+        padding: 5px;
+        border-radius: 4px;
+        }
+    </style>
+    
+    <div class="terminal-container">
+        <div class="terminal">
+            <span class="prompt">FROM</span> <code class="pretty-code">itzg/minecraft-server</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">EULA=true</code><br>
+            <span class="prompt">EXPOSE</span> <code class="pretty-code">25565/tcp 25575/tcp</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">ENABLE_WHITELIST=true</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">WHITELIST=notch,ViktorViking</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">TYPE=PURPUR</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">USE_SIMD_FLAGS=true</code><br>
+            <span class="prompt">ENV</span> <code class="pretty-code">SNOOPER_ENABLED=false</code><br>
+            <span class="prompt">VOLUME</span> <code class="pretty-code">[</code><code class="extraprompt">"/data"</code><code class="pretty-code">]</code>
+        </div>
+    </div>
+    <p>
+        I tried running the docker file and spawn a shell too to see if there's anything on it. But after going through most of the directory there is absolutely nothing.
+    </p>
+    <img src="/posts/vike-ctf-2024/vikectf-1.png">
+    <p>
+        Then I try looking at the github account once more to find any clues and then I stumbled upon something.
+    </p>
+    <img src="/posts/vike-ctf-2024/vikectf-2.png">
+    <p>
+        On the commit history section shows that something was reverted. So I googled and found a tool called github-secrets. Run it and click the first link to reveal the flag
+    </p>
+    <img src="/posts/vike-ctf-2024/vikectf-3.png"style="display: block; margin-bottom: 20px;">
+    
+    <img src="/posts/vike-ctf-2024/vikectf-4.png">
 
+    <div class="terminal-container">
+        <div class="terminal">
+            <span class="prompt">$</span> <code class="pretty-code">Flag : vikeCTF{Y0u_c4N7_3rA5e_H1sT0Ry}</code><br>
+        </div>
+    </div>
+
+    
+    </div>
+    </article>
+</main>
+    </div>
         </div><footer class="footer">
         <span class="footer_item"> </span>
         &nbsp;
@@ -191,22 +283,6 @@
     </svg>
     
     </a>
-    
-    
-        
-    
-    
-    
-    
-        
-        
-            
-        
-    
-        
-        
-            
-        
     
     
     

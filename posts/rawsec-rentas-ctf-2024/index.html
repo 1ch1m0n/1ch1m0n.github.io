@@ -2,7 +2,7 @@
     <meta http-equiv="content-type" content="text/html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title itemprop="name">About | 1ch1m0n's Blog</title>
+    <title itemprop="name">Posts | 1ch1m0n's Blog</title>
     <meta property="og:title" content="Home | 1ch1m0n's Blog" />
     <meta name="twitter:title" content="Home | 1ch1m0n's Blog" />
     <meta itemprop="name" content="Home | 1ch1m0n's Blog" />
@@ -105,16 +105,17 @@
                         </a>
                         
                     </li>
-
+                    
                     <li>
                         <a class="menu-link " href="/pages/notes/">
                             Notes
                         </a>
                         
                     </li>
-                    
+    
                     <li class="menu-separator">
                         <span>|</span>
+                        
                     </li>
                     
                     
@@ -128,29 +129,213 @@
             </div>
         </nav>
     </div>
+
     <div class="wrapper post">
-    
-        <main class="page-content" aria-label="Content"> 
+        <main class="page-content" aria-label="Content">
             <article>
                 <header class="header">
+                    <h1 class="header-title">rawSEC rENTAS 2024 Writeup</h1>
+                    
+                    
+                    
+                    <div class="post-meta">
+                        <time datetime="2024-03-09T00:00:00&#43;00:00" itemprop="datePublished"> 9 March 2024 </time>
+                    </div>
+                    <br>
+                    <img src="/posts/rawsec-rentas-ctf-2024/rawSEC.png">
+                    <br>
+
+                </header>  
+        <details class="toc" ZgotmplZ>
+            <summary><b>Table of Contents</b></summary>
+            <nav id="TableOfContents">
+      <ul>
+        <span style="margin: 0; padding: 0; font-weight: bold;">Qualifying Round</span>
+        <li><a href="#osint">OSINT</a></li>
+        <li><a href="#cryptography">Cryptography</a></li>
+
+        <span style="margin: 0; padding: 0; font-weight: bold;">Final Round</span>
+        <li><a href="#dfir">DFIR</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#network">Network</a></li>
+      </ul>
+    </nav>
+        </details>
+        <!-- CSS For Code-->
+    <style>
+        /* styles.css */
+ 
+         .terminal-container {
+         max-width: 600px;
+         margin: 20px auto;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 8px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         background-color: #2c2c2c;
+         color: #ffffff;
+         font-family: 'Courier New', Courier, monospace;
+         }
+ 
+         .terminal {
+         background-color: #1e1e1e;
+         padding: 15px;
+         border-radius: 4px;
+         overflow-x: auto;
+         }
+ 
+         .prompt {
+         color: #00ff00; /* Green color for the prompt */
+         }
+         .extraprompt {
+         color: #f92672; /* Red color for the extra prompt */
+         }
+ 
+         .pretty-code {
+         font-size: 16px;
+         background-color: #1e1e1e;
+         padding: 5px;
+         border-radius: 4px;
+         }
+     </style>
+
+        <!--Question Section------------------------------------------------------------------------>
+    <div class="page-content">
+
+            <h2>Qualifying Round</h2>
+            <h2 id="osint">OSINT</h2>
+            <h3 id="table-of-content">Cali Cartel</h3> 
+
+            <p> 
+                This question is very straightforward, as the description stated “knowledge is power” suggests that the flag is somewhere on the internet. 
+                A simple google search using Google search operator Cali Cartel “RWSC” reveals that the flag is in a Reddit website.
+            </p>
+
+            <img src="/posts/rawsec-rentas-ctf-2024/calicartel-1.png">
+
+            <div class="terminal-container">
+                <div class="terminal">
+                    <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{C4L1_C4RT3L_PWN3D}</code><br>
+                </div>
+            </div>
+         <!--Question Section------------------------------------------------------------------------>
             
-                    <h1 class="header-title">About</h1>
-                </header>
+            <h3 id="table-of-content">Medellin Cartel</h3> 
 
-                <div class="page-content">
-
-                    <img src="/avatar.png" alt="A cute cat"></a>
-
-                    <p>
-                        Hello everyone ! I'm Akif, a final year computer network student with a passion for cybersecurity.
+            <p> 
+                This one is quite tricky, but when the clue was released it led us to an Instagram profile @nelsonhernandez144 which the clue tells us something about the metadata.
+            </p>
             
-                    </p>
+            <img src="/posts/rawsec-rentas-ctf-2024/medellincartel-1.png">
+            
+            <p> 
+                Using a tool called Instaloader we were able to extract this profile along with its metadata. Further check on each of the files reveals that the flag is in one of the .json documents.
+            </p>
 
-                </div>  
-            </article>
+            <img src="/posts/rawsec-rentas-ctf-2024/medellincartel-2.png"style="margin-bottom: 20px;">
+    
+            <img src="/posts/rawsec-rentas-ctf-2024/medellincartel-3.png">
 
-        </main>
+            <div class="terminal-container">
+                <div class="terminal">
+                    <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{Bl4cky_S1c4r10}</code><br>
+                </div>
+            </div>
+         <!--Question Section------------------------------------------------------------------------>
+         
+         <h2 id="cryptography">Cryptography</h2>
+         <h3 id="table-of-content">round and round</h3> 
 
+         <p> 
+            This one took us a while to figure it out, in the end the clue lies within the description “I love to eat pizza”. Upon further googling we found one cipher named Pizzini Cipher, from there on everything was so direct
+         </p>
+
+         <img src="/posts/rawsec-rentas-ctf-2024/roundnround-1.png"style="margin-bottom: 20px;">
+
+         <div class="terminal-container">
+             <div class="terminal">
+                 <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{PIZZINI_CIPHER_WAS_EAZY}</code><br>
+             </div>
+         </div>
+        <!--Question Section------------------------------------------------------------------------>
+
+        <h2>Final Round</h2>
+            <h2 id="dfir">DFIR</h2>
+            <h3 id="table-of-content">Hiding Zombie</h3> 
+
+            <img src="/posts/rawsec-rentas-ctf-2024/hidingzombie-0.png">
+
+            <p> 
+                Firstly we were given a corrupted .png file
+            </p>
+            
+            <img src="/posts/rawsec-rentas-ctf-2024/hidingzombie-1.png">
+            <p> 
+                Upon checking the picture using pngcheck we can see there are errors in the picture. We solve the CRC error by replacing 7f1d2b83 with 80d35286 , so that we can open the picture.
+            </p>
+            <img src="/posts/rawsec-rentas-ctf-2024/hidingzombie-2.png"style="margin-bottom: 20px;">
+    
+            <img src="/posts/rawsec-rentas-ctf-2024/hidingzombie-3.png">
+            <p>
+                Then we uploaded the picture to a website called FotoForensics and analyse the picture using Hidden Pixels
+            </p>
+
+            <img src="/posts/rawsec-rentas-ctf-2024/hidingzombie-4.png">
+
+            <div class="terminal-container">
+                <div class="terminal">
+                    <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{z0mb13_4tt4ck_1nc0m1ng}</code><br>
+                </div>
+            </div>
+        <!--Question Section------------------------------------------------------------------------>
+
+            <h2 id="hardware">Hardware</h2>
+            <h3 id="table-of-content">7 Segment 4 Digit</h3> 
+            <p> 
+                This is a very interesting physical question, we were presented with a 7 segment LCD display and an Arduino board in which we need to light up by connecting wires on the board. 
+                Surprisingly we managed to connect it and got first blood for the Hardware category as we were picked to do it first thing in the morning as the CTF Event started. 
+                Upon successfull connection it will display the flag
+            </p>
+            
+            <img src="/posts/rawsec-rentas-ctf-2024/hardware-1.jpg">
+           
+            <div class="terminal-container">
+                <div class="terminal">
+                    <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{1337}</code><br>
+                </div>
+            </div>
+        <!--Question Section------------------------------------------------------------------------>
+            <h2 id="network">Network</h2>
+            <h3 id="table-of-content">I Hope You Have The Software</h3> 
+
+            <img src="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-0.png">
+            <p> 
+                This question is rather a straightforward one, firstly when we opened the file in Cisco Packet Tracer we check what is in the server and there is a suspicious sampleFile.txt
+            </p>
+    
+            <img src="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-1.png">
+            <p> 
+                However upon further checking there is nothing here, the real clue lies within each services of the server running. By checking each of the server’s services patiently, we came across the flag inside index.html
+            </p>
+            <img src="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-2.png">
+
+            <p> 
+                When we opened it and scroll down BOOM! the flag was there.
+            </p>
+            <img src="/posts/rawsec-rentas-ctf-2024/ihopeuhavesoftware-3.png">
+
+            <div class="terminal-container">
+                <div class="terminal">
+                    <span class="prompt">$</span> <code class="pretty-code">Flag : RWSC{_t4c3r_f!l3_:D!t5_a}</code><br>
+                </div>
+            </div>
+    </div>
+        
+    
+    </div>
+    </article>
+</main>
+    </div>
         </div><footer class="footer">
         <span class="footer_item"> </span>
         &nbsp;
@@ -191,22 +376,6 @@
     </svg>
     
     </a>
-    
-    
-        
-    
-    
-    
-    
-        
-        
-            
-        
-    
-        
-        
-            
-        
     
     
     
