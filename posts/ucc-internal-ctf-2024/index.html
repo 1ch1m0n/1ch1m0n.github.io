@@ -220,7 +220,7 @@
             <h3 id="chall1">Your First Network ^-^</h3>
             <img src="/posts/ucc-internal-ctf-2024/chal1.png">
             
-            <p> Download the challenge <a href="https://drive.google.com/file/d/1HTi7WVS3JxcgCAMg73uAR0-YX_p3uKx2/view?usp=drive_link">here</a></p>
+            <p> Download the challenge <a href="https://drive.google.com/file/d/1dDdqyJR0Eb7FjoFJg5HZFewCq9sGLvMQ/view?usp=drive_link">here</a></p>
             
             <p> 
                 This is the first network category question, participants are required to use Cisco Packet Tracer in order to open the .pka file and solve the challenge. 
@@ -265,18 +265,18 @@
             </table>
 
             <p> 
-                Before I do any configuration, I usually connects the cable to each devices first, and rename everything according to the Device Configuration. It doesn't matter which interface you connected the cable to.
+                Before I do any configuration, I usually connect the cable to each devices first, and rename everything according to the Device Configuration. It doesn't matter which interface you connected the cable to.
             </p>
             <img src="/posts/ucc-internal-ctf-2024/chal1-1.png"style="margin-bottom: 20px;">
 
             <p> 
-                Now the fun part, which is the configuration. First we are going to set up the IP addresses for each devices, we will start with the PCs.
+                Now the for the fun part, which is the configuration. First we are going to set up the IP addresses for each devices, we will start with the PCs.
                 To configure the IP address for the PC, just click on the PC and go to Desktop > IP Configuration. A window like this will appear.
             </p>
             <img src="/posts/ucc-internal-ctf-2024/chal1-2.png"style="margin-bottom: 20px;">
             
             <p> 
-               Then fill out the the  Ipv4 Address and the subnet mask field. After completing this, your completion should be at 16%.
+               Then fill out the the Ipv4 Address and the subnet mask field. After completing this, your completion should be at 16%.
             </p>
             <img src="/posts/ucc-internal-ctf-2024/chal1-3.png"style="margin-bottom: 20px;">
 
@@ -286,7 +286,7 @@
                 <div class="terminal-container">
                     <div class="terminal">
                         <span class="prompt">Switch0></span> <code class="pretty-code">enable</code><br>
-                        <span class="prompt">Swtich0#</span> <code class="pretty-code">configure terminal</code><br>
+                        <span class="prompt">Switch0#</span> <code class="pretty-code">configure terminal</code><br>
                         <span class="prompt">Switch0(config)#</span> <code class="pretty-code">hostname S1</code><br>
                         <span class="prompt">S1(config)#</span> <code class="pretty-code">int vlan 1</code><br>
                         <span class="prompt">S1(config-if)#</span> <code class="pretty-code">ip address 192.168.1.253 255.255.255.0</code><br>
@@ -313,7 +313,7 @@
             <h3 id="chall2">Secret Message</h3>
             <img src="/posts/ucc-internal-ctf-2024/chal2.png">
             
-            <p> Download the challenge <a href="https://drive.google.com/file/d/1ITlFD0rbRPj0SBH-NwVyY585zwVKTjwp/view?usp=drive_link">here</a></p>
+            <p> Download the challenge <a href="https://drive.google.com/file/d/1HTi7WVS3JxcgCAMg73uAR0-YX_p3uKx2/view?usp=drive_link">here</a></p>
 
             <p> 
                 For the second challenge, the participant was presented with packet capture or PCAP file. In which they are required to analyse the traffic.
@@ -364,7 +364,7 @@
          </div>
         <!--Question Section------------------------------------------------------------------------>
         <h3 id="chall3">Mr. Ocin's Problem</h3>
-        <img src="/posts/ucc-internal-ctf-2024/chal2.png">
+        <img src="/posts/ucc-internal-ctf-2024/chal3.png">
         
         <p> Download the challenge <a href="https://drive.google.com/file/d/1ITlFD0rbRPj0SBH-NwVyY585zwVKTjwp/view?usp=drive_link">here</a></p>
 
@@ -449,7 +449,7 @@
         </p>
         <div class="terminal-container">
             <div class="terminal">
-                <span class="prompt">>HomeRouter#</span> <code class="pretty-code">enable</code><br>
+                <span class="prompt">HomeRouter#</span> <code class="pretty-code">enable</code><br>
                 <span class="prompt">HomeRouter#</span> <code class="pretty-code">configure terminal</code><br>
                 <span class="prompt">HomeRouter(config)#</span> <code class="pretty-code">router ospf 10</code><br>
                 <span class="prompt">HomeRouter(config-router)#</span> <code class="pretty-code">network 10.0.0.0 0.0.0.255 area 0</code><br>
