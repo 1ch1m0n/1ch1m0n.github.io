@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,181 +6,132 @@
     <title>404 - Page Not Found</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-        .container {
+        #tic-tac-toe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td.cell {
+            width: 60px;
+            height: 60px;
             text-align: center;
-        }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            color: #e74c3c;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .score {
             font-size: 24px;
-            margin: 10px 0;
-        }
-        .game {
-            position: relative;
-            width: 600px;
-            height: 150px;
-            background-color: #fff;
-            border: 2px solid #333;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
-        .dino {
-            position: absolute;
-            bottom: 0;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            animation: run 0.5s steps(2) infinite;
-        }
-        .obstacle {
-            position: absolute;
-            bottom: 0;
-            width: 20px;
-            height: 40px;
-            background-color: #555;
-            animation: move 2s linear infinite;
-        }
-        @keyframes run {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes move {
-            0% { right: -20px; }
-            100% { right: 600px; }
-        }
-        .restart-btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #3498db;
-            border: none;
-            border-radius: 5px;
+            border: 1px solid #333;
             cursor: pointer;
-            display: none; /* Initially hidden */
-            margin: 20px auto; /* Center the button */
-            text-align: center; /* Center text inside the button */
         }
-        .restart-btn:hover {
-            background-color: #2980b9;
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .home-link {
+            margin-bottom: 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>404 - Page Not Found</h1>
-        <p>Oops! The page you're looking for doesn't exist. Click 
-          <a href="/">here</a>
-          to go back home.
-        </p>
-        <div class="score" id="score">Score: 0</div>
-        <div class="game" id="game">
-            <div class="dino" id="dino"></div>
-            <div class="obstacle" id="obstacle"></div>
-        </div>
-        <p>Press the spacebar to jump!</p>
-        <button class="restart-btn" id="restartBtn">Restart Game</button>
+    <h1>404 - Page Not Found</h1>
+    <p>It seems you've stumbled upon a missing page. But why not play a game of Tic-Tac-Toe?</p>
+    
+    <a class="home-link" href="/">1ch1m0n㉿home:~$</a>
+    
+    <div id="tic-tac-toe">
+        <table>
+            <tr>
+                <td class="cell" onclick="makeMove(this, 0)"></td>
+                <td class="cell" onclick="makeMove(this, 1)"></td>
+                <td class="cell" onclick="makeMove(this, 2)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="makeMove(this, 3)"></td>
+                <td class="cell" onclick="makeMove(this, 4)"></td>
+                <td class="cell" onclick="makeMove(this, 5)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="makeMove(this, 6)"></td>
+                <td class="cell" onclick="makeMove(this, 7)"></td>
+                <td class="cell" onclick="makeMove(this, 8)"></td>
+            </tr>
+        </table>
+        <p id="status"></p>
+        <button onclick="resetGame()">Reset Game</button>
     </div>
 
     <script>
-        const dino = document.getElementById("dino");
-        const obstacle = document.getElementById("obstacle");
-        const scoreDisplay = document.getElementById("score");
-        const restartBtn = document.getElementById("restartBtn");
-        let isJumping = false;
-        let score = 0;
-        let gameInterval;
-        let obstacleSpeed = 2000; // Initial speed for the obstacle
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let currentPlayer = "X";
+        let gameActive = true;
 
-        function control(e) {
-            if (e.keyCode === 32) {
-                if (!isJumping) {
-                    jump();
-                }
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        function makeMove(cell, index) {
+            if (board[index] === "" && gameActive) {
+                board[index] = currentPlayer;
+                cell.innerHTML = currentPlayer;
+                checkWinner();
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
             }
         }
 
-        function jump() {
-            let position = 0;
-            isJumping = true;
-
-            let upInterval = setInterval(() => {
-                if (position >= 150) {
-                    clearInterval(upInterval);
-
-                    let downInterval = setInterval(() => {
-                        if (position <= 0) {
-                            clearInterval(downInterval);
-                            isJumping = false;
-                        }
-                        position -= 5;
-                        dino.style.bottom = position + 'px';
-                    }, 20);
-                } else {
-                    position += 30;
-                    dino.style.bottom = position + 'px';
+        function checkWinner() {
+            let roundWon = false;
+            for (let i = 0; i < winningConditions.length; i++) {
+                const [a, b, c] = winningConditions[i];
+                if (board[a] !== "" && board[a] === board[b] && board[a] === board[c]) {
+                    roundWon = true;
+                    break;
                 }
-            }, 20);
-        }
+            }
 
-        function checkCollision() {
-            const dinoBottom = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
-            const obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
+            if (roundWon) {
+                document.getElementById("status").innerHTML = `Player ${currentPlayer} wins!`;
+                gameActive = false;
+                return;
+            }
 
-            if (obstacleLeft > 0 && obstacleLeft < 40 && dinoBottom < 40) {
-                alert("Game Over!");
-                obstacle.style.animation = "none";
-                obstacle.style.display = "none";
-                document.removeEventListener("keydown", control);
-                clearInterval(gameInterval);
-                restartBtn.style.display = 'block'; // Show restart button
+            if (!board.includes("")) {
+                document.getElementById("status").innerHTML = "It's a draw!";
+                gameActive = false;
             }
         }
 
-        function updateScore() {
-            score++;
-            scoreDisplay.innerText = "Score: " + score;
+        function resetGame() {
+            board = ["", "", "", "", "", "", "", "", ""];
+            currentPlayer = "X";
+            gameActive = true;
+            document.querySelectorAll("td.cell").forEach(cell => cell.innerHTML = "");
+            document.getElementById("status").innerHTML = "";
         }
-
-        function startGame() {
-            score = 0;
-            scoreDisplay.innerText = "Score: 0";
-            obstacle.style.animation = `move ${obstacleSpeed}ms linear infinite`;
-            obstacle.style.display = 'block';
-            restartBtn.style.display = 'none'; // Hide restart button
-            document.addEventListener("keydown", control);
-            gameInterval = setInterval(() => {
-                checkCollision();
-                updateScore();
-            }, 100);
-        }
-
-        restartBtn.addEventListener("click", () => {
-            startGame();
-        });
-
-        // Start the game on page load
-        startGame();
     </script>
 </body>
 </html>
