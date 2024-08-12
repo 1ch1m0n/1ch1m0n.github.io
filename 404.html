@@ -1,18 +1,186 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="robots" content="all" />
-  <meta name="robots" content="index,follow"/>
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .score {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .game {
+            position: relative;
+            width: 600px;
+            height: 150px;
+            background-color: #fff;
+            border: 2px solid #333;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .dino {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            animation: run 0.5s steps(2) infinite;
+        }
+        .obstacle {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 40px;
+            background-color: #555;
+            animation: move 2s linear infinite;
+        }
+        @keyframes run {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes move {
+            0% { right: -20px; }
+            100% { right: 600px; }
+        }
+        .restart-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+            margin: 20px auto; /* Center the button */
+            text-align: center; /* Center text inside the button */
+        }
+        .restart-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js"
-          charset="utf-8" homePageUrl="/"
-          homePageName="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
+    <div class="container">
+        <h1>404 - Page Not Found</h1>
+        <p>Oops! The page you're looking for doesn't exist. Click 
+          <a href="/">here</a>
+          to go back home.
+        </p>
+        <div class="score" id="score">Score: 0</div>
+        <div class="game" id="game">
+            <div class="dino" id="dino"></div>
+            <div class="obstacle" id="obstacle"></div>
+        </div>
+        <p>Press the spacebar to jump!</p>
+        <button class="restart-btn" id="restartBtn">Restart Game</button>
+    </div>
+
+    <script>
+        const dino = document.getElementById("dino");
+        const obstacle = document.getElementById("obstacle");
+        const scoreDisplay = document.getElementById("score");
+        const restartBtn = document.getElementById("restartBtn");
+        let isJumping = false;
+        let score = 0;
+        let gameInterval;
+        let obstacleSpeed = 2000; // Initial speed for the obstacle
+
+        function control(e) {
+            if (e.keyCode === 32) {
+                if (!isJumping) {
+                    jump();
+                }
+            }
+        }
+
+        function jump() {
+            let position = 0;
+            isJumping = true;
+
+            let upInterval = setInterval(() => {
+                if (position >= 150) {
+                    clearInterval(upInterval);
+
+                    let downInterval = setInterval(() => {
+                        if (position <= 0) {
+                            clearInterval(downInterval);
+                            isJumping = false;
+                        }
+                        position -= 5;
+                        dino.style.bottom = position + 'px';
+                    }, 20);
+                } else {
+                    position += 30;
+                    dino.style.bottom = position + 'px';
+                }
+            }, 20);
+        }
+
+        function checkCollision() {
+            const dinoBottom = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
+            const obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
+
+            if (obstacleLeft > 0 && obstacleLeft < 40 && dinoBottom < 40) {
+                alert("Game Over!");
+                obstacle.style.animation = "none";
+                obstacle.style.display = "none";
+                document.removeEventListener("keydown", control);
+                clearInterval(gameInterval);
+                restartBtn.style.display = 'block'; // Show restart button
+            }
+        }
+
+        function updateScore() {
+            score++;
+            scoreDisplay.innerText = "Score: " + score;
+        }
+
+        function startGame() {
+            score = 0;
+            scoreDisplay.innerText = "Score: 0";
+            obstacle.style.animation = `move ${obstacleSpeed}ms linear infinite`;
+            obstacle.style.display = 'block';
+            restartBtn.style.display = 'none'; // Hide restart button
+            document.addEventListener("keydown", control);
+            gameInterval = setInterval(() => {
+                checkCollision();
+                updateScore();
+            }, 100);
+        }
+
+        restartBtn.addEventListener("click", () => {
+            startGame();
+        });
+
+        // Start the game on page load
+        startGame();
+    </script>
 </body>
 </html>
