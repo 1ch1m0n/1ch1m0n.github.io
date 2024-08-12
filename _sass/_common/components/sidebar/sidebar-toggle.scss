@@ -12,10 +12,10 @@
   -webkit-transform: translateZ(0);
 
   @include tablet() {
-    display: none;
+    display: block;
   }
   @include mobile() {
-    display: none;
+    display: block;
   }
 }
 
