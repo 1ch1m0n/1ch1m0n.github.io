@@ -1,6 +1,6 @@
 ---
 title: CyberDefenders Ramnit Walkthrough
-description: Endpoint memory dump forensics using Volatility3. Feel free to read my writeup.
+description: Feeling bored during my semester break, so I decided to try this Lab to learn something new. It is an Endpoint memory dump forensics using Volatility3. Feel free to read.
 categories:
  - Notes
 tags:
@@ -25,7 +25,7 @@ Our intrusion detection system has alerted us to suspicious behavior on a workst
 Tools:
 Volatility 3
 
-For Volatility3, I use custom alias so that I can run it easier by only using `volatiliy3` command
+For Volatility3, I use custom alias so that I can run it easier by only using `volatility3` command
 ![Vol3](/assets/images/practice/cyberdefenders/aliasvol.png)
 
 # Walkthrough
