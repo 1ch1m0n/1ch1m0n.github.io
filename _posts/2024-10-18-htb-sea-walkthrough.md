@@ -86,7 +86,7 @@ After a few attempts at enumeration, we found out that there is a web service ru
 
 ![Root1](/assets/images/htb-sea-2024/root1.png)
 
-However just normally browing it like **http://10.10.11.28:8080/** won't show anything. Therefore we need to port forward this so we can access in on our local machine.
+However just normally browsing it like **http://10.10.11.28:8080/** won't show anything. Therefore we need to port forward this so we can access in on our local machine.
 > **ssh -L 6969:localhost:8080 amay@10.10.11.28**
 
 This will port forward the server's port 8080 to our local port 6969. Now if we open **http://localhost:6969** we will see some kind of System Monitor page.
