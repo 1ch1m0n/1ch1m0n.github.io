@@ -2,9 +2,9 @@
 title: HTB Sea Walkthrough
 description: This is a Linux Machine vulnerable to CVE-2023-4142.A Cross Site Scripting vulnerability in Wonder CMS Version 3.2.0 to Version 3.4.2 allows a remote attacker to execute arbitrary code via a crafted script uploaded to the installModule component. Played it as a practice during my free time. The difficulty is Easy.
 categories:
- - Notes
+ - Writeup
 tags:
-- easy
+- htb
 - xxs
 - web
 - linux

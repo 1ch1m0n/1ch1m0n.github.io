@@ -2,9 +2,9 @@
 title: HTB Chemistry Walkthrough
 description: This yet another HTB Season 6 (Aug-Nov 2024) Machine in Easy Category. This was a Linux Machine vulnerable to Arbitrary Code Execution due to Python's package which is pymatgen ver. <= 2024.2.8 insecurely utilizes eval() for processing input, which allows execution of arbitrary code when parsing malicious CIF file. It is also vulnerable to LFI/Path Traversal because of how Aiohttp ver <=3.9.1 handles requests for static resources.
 categories:
- - Notes
+ - Writeup
 tags:
-- easy
+- htb
 - rce
 - web
 - linux

@@ -2,9 +2,9 @@
 title: HTB Cicada Walkthrough
 description: This is one of the seasonal machine as of writing, decided to do this as a practice during my free time. This is a Windows machine and the difficulty  is Easy.
 categories:
- - Notes
+ - Writeup
 tags:
-- easy
+- htb
 - smb
 - ldap
 - windows

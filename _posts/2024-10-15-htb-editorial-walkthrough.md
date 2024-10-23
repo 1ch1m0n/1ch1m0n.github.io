@@ -2,9 +2,9 @@
 title: HTB Editorial Walkthrough
 description: This is a Linux Machine vulnerable to SSRF. This machine is active as this was posted. Played it as a practice during my free time. The difficulty is Easy.
 categories:
- - Notes
+ - Writeup
 tags:
-- easy
+- htb
 - ssrf
 - web
 - linux
