@@ -1,5 +1,5 @@
 ---
-title: SQL Injection Practice 
+title: AturKreatif CTF 2024 (SQLi)
 description: These challenges was from AturKreatif 2024 CTF by USIM, was glad I had the opportunity to try these challenges myself as a part of my Internship.
 categories:
  - Writeup
