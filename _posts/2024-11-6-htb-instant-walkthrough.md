@@ -11,7 +11,7 @@ tags:
 - idor
 ---
 
-![Instant Banner](/assets/images/htb-chemistry-2024/Chemistry.png)
+![Instant Banner](/assets/images/htb-instant-2024/Instant.png)
 
 # Reconnaissance
 ## Nmap Scan
