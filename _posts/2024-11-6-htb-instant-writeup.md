@@ -1,5 +1,5 @@
 ---
-title: HTB Instant Walkthrough
+title: HTB Instant Writeup
 description: Writeup on HTB Season 6 Instant. The target is a Linux Machine in Medium Category. This machine involves decompiling an apk file and understanding how API works. The root flag also involves SolarPutty session cracking.
 categories:
  - Writeup
@@ -18,7 +18,7 @@ tags:
 
 ### Nmap Scan
 
-```zsh
+```bash
 nmap -sV -A 10.10.11.37 -p- > nmap.txt
 ```
 
@@ -110,7 +110,9 @@ After this I was stuck on what to do, I tried a lot of things such as fuzzing fo
 
 So the first thing I do is download the contents of the apk file. Then we can simply grep.
 
->**grep -rn "instant.htb" .**
+```bash
+grep -rn "instant.htb" .
+```
 
 ![Enum6](/assets/img/htb-instant-2024/enum6.png)
 
